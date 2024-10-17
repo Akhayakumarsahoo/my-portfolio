@@ -75,7 +75,7 @@ export default function Navbar() {
           href="#Home"
           className="animatedText text-xl pl-3 font-extrabold cursor-pointer pt-1"
         >
-          AKXY
+          AKS
         </a>
       </div>
 
