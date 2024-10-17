@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import { PiMoonStarsFill } from "react-icons/pi";
+import { BsSun } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
 import { Tooltip } from "@mui/material";
 import MobNavbar from "./MobNavbar";
+import { motion } from "framer-motion";
+
 export default function Navbar() {
   // Menu toggle handle
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,43 +39,71 @@ export default function Navbar() {
 
   //Scroll effect
   const scrollTo = (id) => {
-    setActiveItem(id);
     setIsMenuOpen(false);
     const element = document.getElementById(id);
     element.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <nav className="h-16 bg-transparent fixed top-0 z-50 w-full flex items-center justify-between px-5">
+    <motion.nav
+      initial={{ opacity: 0, top: -100 }}
+      animate={{ opacity: 1, top: 10 }}
+      transition={{
+        delay: 0.5,
+        type: "spring",
+        bounce: 0.3,
+        duration: 0.8,
+        ease: "easeOut",
+      }}
+      className="h-16 fixed top-5 z-50 w-full flex items-center justify-between px-10 md:px-20"
+    >
       {/* Logo */}
-      <a href="#" className="menu-logo">
-        <img
-          className="h-8 w-8 rounded-full"
-          src="Logo1.gif"
-          alt="Akshaya Kumar Sahoo"
-        />
-      </a>
+      <div className="flex flex-row">
+        <Tooltip title="sup!">
+          <a
+            onClick={() => scrollTo("Home")}
+            className="h-10 w-10 rounded-full backdrop-blur-lg backdrop-brightness-150 shadow-lg "
+          >
+            <img
+              className="h-10 w-10 rounded-full "
+              src="Logo.gif"
+              alt="Akshaya Kumar Sahoo"
+            />
+          </a>
+        </Tooltip>
+        <a
+          href="#Home"
+          className="animatedText text-xl pl-3 font-extrabold cursor-pointer pt-1"
+        >
+          AKXY
+        </a>
+      </div>
 
       {/* Menu Items for large screen */}
       <div
-        className={`menu bg-color2-bg hidden rounded-full px-1 md:flex items-center justify-center flex-col md:flex-row md:bg-opacity-10 md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg absolute md:left-1/2 md:transform md:-translate-x-1/2 `}
+        className={`menu bg-gray-100 dark:bg-black2 hidden rounded-full px-1 md:flex items-center justify-center flex-col md:flex-row md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg md:absolute md:left-1/2 md:transform md:-translate-x-1/2 dark:[#555] `}
       >
-        <ul className="h-12 w-96 list-none lg:space-x-2 rounded-full md:flex md:items-center md:justify-center md:flex-row ">
+        <motion.ul
+          layout
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className="h-12 w-80 list-none rounded-full md:flex md:items-center md:justify-center md:flex-row "
+        >
           {sections.map((section) => (
-            <li key={section}>
-              <a
-                onClick={() => scrollTo(section)}
-                className={`px-5 md:py-2 rounded-full cursor-pointer hover:bg-gray-900 ${
-                  activeItem === section
-                    ? "bg-gray-800 text-white "
-                    : " hover:bg-gray-700 text-black hover:text-white dark:text-white"
-                }`}
-              >
-                {section}
-              </a>
-            </li>
+            <motion.li
+              layout
+              transition={{ type: "spring" }}
+              key={section}
+              onClick={() => scrollTo(section)}
+              className={`px-4 md:py-2 text-sm rounded-full cursor-pointer ${
+                activeItem === section
+                  ? "font-bold animatedText "
+                  : "text-black dark:text-white"
+              } `}
+            >
+              {section}
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
 
       {/* Mobile menu, show/hide based on menu state */}
@@ -85,59 +117,51 @@ export default function Navbar() {
 
       {/* Social links and Light Toggle button */}
       <div className="hidden md:flex items-center md:space-x-2 lg:space-x-4">
-        <Social />
-        <LightToggleBtn />
+        <LightToggleBtn id={"large"} />
       </div>
-    </nav>
+    </motion.nav>
   );
 }
 
-export function LightToggleBtn() {
-  const [themeMode, setThemeMode] = useState("dark");
-
-  const lightTheme = () => {
-    setThemeMode("light");
-  };
-  const darkTheme = () => {
-    setThemeMode("dark");
-  };
+export function LightToggleBtn({ id }) {
+  const [themeMode, setThemeMode] = useState("light");
 
   // actual change in theme
   useEffect(() => {
-    document.querySelector("html").classList.remove("light", "dark");
-    document.querySelector("html").classList.add(themeMode);
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(themeMode);
   }, [themeMode]);
 
   // Light button handle
-  const onChangeBtn = (e) => {
-    const darkModeStatus = e.currentTarget.checked;
-    if (darkModeStatus) {
-      darkTheme();
-    } else {
-      lightTheme();
-    }
+  const onChangeBtn = () => {
+    setThemeMode((prevMode) => (prevMode === "dark" ? "light" : "dark"));
   };
 
   return (
     <>
       {/* Light toggle button */}
-      <div className="cursor-pointer h-8 w-8 pb-1 bg-black hover:bg-gray-900 rounded-full flex items-center justify-center hover:scale-105">
+      <div
+        className={`cursor-pointer h-8 w-8 text-white text-xl bg-black hover:bg-black1 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 ease-in-out md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg`}
+      >
         <input
-          id="themeSwither"
+          id={id}
           type="checkbox"
-          value=""
           className="sr-only peer"
           onChange={onChangeBtn}
           checked={themeMode === "dark"}
         />
-        <label htmlFor="themeSwither" className="cursor-pointer">
+        <label htmlFor={id} className="cursor-pointer">
           {themeMode === "dark" ? (
             <Tooltip title="Turn on light">
-              <LightModeIcon sx={{ color: "white" }} />
+              <div className="">
+                <BsSun />
+              </div>
             </Tooltip>
           ) : (
             <Tooltip title="Turn off light">
-              <DarkModeIcon sx={{ color: "white" }} />
+              <div className="">
+                <PiMoonStarsFill />
+              </div>
             </Tooltip>
           )}
         </label>
@@ -150,26 +174,26 @@ export function Social() {
   return (
     <div className="flex space-x-5 md:space-x-2 lg:space-x-4">
       {/* GitHub */}
-      <div className="cursor-pointer h-8 w-8 pb-1 bg-black hover:bg-gray-900 rounded-full flex items-center justify-center hover:scale-105">
+      <div className="cursor-pointer h-8 w-8 text-white text-xl bg-black hover:bg-gray-900 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 ease-in-out md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg">
         <Tooltip title="GitHub">
           <a href="https://github.com/Akhayakumarsahoo">
-            <GitHubIcon sx={{ color: "white" }} />
+            <FaGithub />
           </a>
         </Tooltip>
       </div>
       {/* X */}
-      <div className="cursor-pointer h-8 w-8 bg-black hover:bg-gray-900 rounded-full flex items-center justify-center hover:scale-105">
+      <div className="cursor-pointer h-8 w-8 text-white text-lg bg-black hover:bg-gray-900 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 ease-in-out md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg">
         <Tooltip title="X">
           <a href="https://x.com/akxyaKumar">
-            <i className="fa-brands fa-x-twitter text-white"></i>
+            <FaXTwitter />
           </a>
         </Tooltip>
       </div>
       {/* LinkedIn */}
-      <div className="cursor-pointer h-8 w-8 bg-black hover:bg-gray-900 rounded-full flex items-center justify-center hover:scale-105">
+      <div className="cursor-pointer h-8 w-8 text-white text-lg bg-black hover:bg-gray-900 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 ease-in-out md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg">
         <Tooltip title="LinkedIn">
           <a href="https://www.linkedin.com/in/akxyakumar">
-            <i className="fa-brands fa-linkedin text-white"></i>
+            <FaLinkedinIn />
           </a>
         </Tooltip>
       </div>

@@ -1,9 +1,6 @@
 function Contact() {
   return (
-    <div
-      id="Contact"
-      className="h-screen w-screen text-center bg-white dark:bg-gray-800"
-    >
+    <div id="Contact" className="h-screen w-screen text-center dark:text-white">
       Contact
     </div>
   );

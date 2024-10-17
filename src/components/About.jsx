@@ -1,10 +1,79 @@
+import { FaSchool } from "react-icons/fa6";
+import { SiKnowledgebase } from "react-icons/si";
+import SkillTech from "./SkillTech";
 function About() {
   return (
-    <div
-      id="About"
-      className="h-screen w-screen text-center bg-white dark:bg-gray-800"
-    >
-      About
+    <div id="About" className="flex flex-col justify-center md:mx-16 lg:mx-36">
+      {/* heading */}
+      <div className="Heading pt-20 text-center">
+        <p className="text-[#555] dark:text-gray-300">Get To Know More</p>
+        <h1 className="text-5xl heroColor font-bold">About Me</h1>
+      </div>
+      {/* About */}
+      <div className="min-w-screen flex flex-col md:flex-row md:items-center md:justify-center mt-10">
+        {/* Image */}
+        <div className="Image md:w-2/5 flex justify-center mb-5">
+          <img
+            src="akhayakumarsahoo.jpg"
+            alt="akhayakumarsahoo"
+            className="rounded-full w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 hover:backdrop-blur-lg hover:backdrop-brightness-125 hover:shadow-lg transition-all duration-500 ease-in-out"
+          />
+        </div>
+        {/* Info */}
+        <div className="Info md:w-3/5 px-10 md:px-20 lg:px-0 h-full flex flex-col md:justify-center">
+          <div className="Name pb-2">
+            <h1 className="heroColor font-semibold text-3xl">
+              Akshay Kumar Sahoo
+            </h1>
+          </div>
+          <p className="text-[#222] dark:text-gray-200">
+            <span>
+              I am a passionate web developer specializing in creating dynamic
+              and responsive web applications. With expertise in React, Node.js,
+              and Tailwind CSS, I strive to build user-friendly interfaces that
+              provide seamless experiences.
+            </span>
+            <br />
+            <br />
+            <span>
+              My journey into web development began with a fascination for
+              technology and a desire to solve real-world problems through code.
+            </span>
+          </p>
+          <div className="py-3">
+            <span className="flex items-center mt-5 mb-2 space-x-5 text-3xl text-black2 dark:text-gray-300">
+              <FaSchool />
+              <h1 className="text-xl font-bold dark:text-gray-300">
+                Education
+              </h1>
+            </span>
+
+            <p className="text-black dark:text-gray-300">
+              Currently i am pursuing my B.Sc. Bachelors Degree in Computer
+              Science
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/*Skills and tech */}
+      <div className="h-[400px] mt-20 md:h-48 mb-5 flex flex-col items-center">
+        <span className=" flex gap-5 pb-5 text-4xl dark:text-gray-300 ">
+          <SiKnowledgebase />
+          <span className="text-lg md:text-3xl font-bold heroColor pt-1">
+            Skills & Technologies
+          </span>
+        </span>
+
+        <div className=" relative h-1/2 w-full overflow-hidden">
+          {/* Left Shadow */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-100 dark:from-black1 to-transparent pointer-events-none z-10" />
+
+          {/* Right shadow */}
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-100 dark:from-black1 to-transparent pointer-events-none z-10" />
+          <SkillTech />
+        </div>
+      </div>
     </div>
   );
 }

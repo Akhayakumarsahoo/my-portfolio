@@ -4,9 +4,12 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        mainFont: "poppins,sans-serif",
+      },
       colors: {
-        "color1-bg": "#08090A", // my custom hex color
-        "color2-bg": "#262626",
+        black1: "#222",
+        black2: "#333",
       },
     },
   },
