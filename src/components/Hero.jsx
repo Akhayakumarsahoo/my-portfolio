@@ -3,8 +3,8 @@ import { Social } from "./Navbar";
 import { SlArrowDown } from "react-icons/sl";
 
 function Hero() {
-  const scrollTo = () => {
-    const element = document.getElementById("About");
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
     element.scrollIntoView({ behavior: "smooth" });
   };
   return (
