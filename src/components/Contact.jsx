@@ -24,7 +24,7 @@ function Contact() {
         transition={{ duration: 0.8, type: "spring", delay: 0.5 }} // Spring for smooth animation
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="text-2xl block mt-10 hover:bg-black2"
+        className="text-2xl block mt-10 hover:bg-neutral-300 dark:hover:bg-black2"
       >
         {hovered ? (
           // Email text when hovered

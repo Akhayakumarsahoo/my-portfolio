@@ -51,7 +51,7 @@ function Hero() {
           duration: 1,
           repeat: Infinity,
         }}
-        className="ArrowDown absolute bottom-10 text-2xl cursor-pointer"
+        className="ArrowDown absolute bottom-16 md:bottom-10 text-2xl cursor-pointer"
       >
         <SlArrowDown />
       </motion.div>
