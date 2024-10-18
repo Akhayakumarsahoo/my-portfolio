@@ -17,7 +17,7 @@ export default function About() {
       <motion.div
         variants={variants}
         initial="hidden"
-        whileInView="visible"
+        animate="visible"
         transition={{ duration: 0.5 }}
         className="Heading pt-12 md:pt-20 text-center"
       >
@@ -28,7 +28,7 @@ export default function About() {
       <motion.div
         variants={variants}
         initial="hidden"
-        whileInView="visible"
+        animate="visible"
         transition={{ duration: 0.5 }}
         className="min-w-screen flex flex-col md:flex-row md:items-center md:justify-center mt-10"
       >

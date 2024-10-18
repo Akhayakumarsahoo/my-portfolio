@@ -3,6 +3,10 @@ import { Social } from "./Navbar";
 import { SlArrowDown } from "react-icons/sl";
 
 function Hero() {
+  const scrollTo = () => {
+    const element = document.getElementById("About");
+    element.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <motion.section
       initial={{ opacity: 0, scale: 0.5, y: 100 }}
