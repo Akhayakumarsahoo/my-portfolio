@@ -47,7 +47,11 @@ export default function MobNavbar({
               className={`flex items-center gap-2 px-3 py-2 rounded-md font-medium w-full text-left`}
               onClick={() => scrollTo(section)}
             >
-              <div className="secIcon text-2xl">
+              <div
+                className={`secIcon text-2xl ${
+                  activeItem === section ? "font-bold" : "text-neutral-500"
+                }`}
+              >
                 {activeItem === section
                   ? navIcon.find((item) => item.section === section).selIcon
                   : navIcon.find((item) => item.section === section).icon}

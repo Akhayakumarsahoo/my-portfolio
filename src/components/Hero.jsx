@@ -1,18 +1,12 @@
 import { motion } from "framer-motion";
 import { Social } from "./Navbar";
-
 import { SlArrowDown } from "react-icons/sl";
 
 function Hero() {
-  const scrollTo = (id) => {
-    const element = document.getElementById(id);
-    element.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <motion.section
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0.5, y: 100 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       id="Home"
       className="min-h-screen flex flex-col items-center justify-center px-5 pt-20 md:pt-28 z-0"

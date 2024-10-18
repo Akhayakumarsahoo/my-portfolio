@@ -86,7 +86,7 @@ export default function Navbar() {
         <motion.ul
           layout
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="h-12 w-80 list-none rounded-full md:flex md:items-center md:justify-center md:flex-row "
+          className="h-12 w-80 list-none rounded-full md:flex md:items-center md:justify-center md:flex-row"
         >
           {sections.map((section) => (
             <motion.li
@@ -94,7 +94,7 @@ export default function Navbar() {
               transition={{ type: "spring" }}
               key={section}
               onClick={() => scrollTo(section)}
-              className={`px-4 md:py-2 text-sm rounded-full cursor-pointer ${
+              className={`px-4 md:py-2 text-sm rounded-full cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-700 ${
                 activeItem === section
                   ? "font-bold"
                   : "text-neutral-500 dark:text-neutral-500"
@@ -141,7 +141,7 @@ export function LightToggleBtn({ id }) {
     <>
       {/* Light toggle button */}
       <div
-        className={`cursor-pointer h-8 w-8 text-white text-xl bg-black hover:bg-black1 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 ease-in-out md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg`}
+        className={`cursor-pointer h-8 w-8 dark:text-white text-xl rounded-full flex items-center justify-center hover:scale-105 transition duration-200 ease-in-out md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg`}
       >
         <input
           id={id}
@@ -154,13 +154,13 @@ export function LightToggleBtn({ id }) {
           {themeMode === "dark" ? (
             <Tooltip title="Turn on light">
               <div className="">
-                <BsSun />
+                <PiMoonStarsFill />
               </div>
             </Tooltip>
           ) : (
             <Tooltip title="Turn off light">
               <div className="">
-                <PiMoonStarsFill />
+                <BsSun />
               </div>
             </Tooltip>
           )}
