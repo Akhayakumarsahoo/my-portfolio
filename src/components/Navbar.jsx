@@ -96,8 +96,8 @@ export default function Navbar() {
               onClick={() => scrollTo(section)}
               className={`px-4 md:py-2 text-sm rounded-full cursor-pointer ${
                 activeItem === section
-                  ? "font-bold animatedText "
-                  : "text-black dark:text-white"
+                  ? "font-bold"
+                  : "text-neutral-500 dark:text-neutral-500"
               } `}
             >
               {section}

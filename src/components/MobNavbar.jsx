@@ -1,12 +1,38 @@
 import { LightToggleBtn, Social } from "./Navbar";
-import { motion } from "framer-motion";
-function MobNavbar({
+import { GoHome, GoHomeFill } from "react-icons/go";
+import { BsPerson, BsPersonFill } from "react-icons/bs";
+import { PiCompassTool, PiCompassToolBold } from "react-icons/pi";
+import { RiContactsBook3Line, RiContactsBook3Fill } from "react-icons/ri";
+
+export default function MobNavbar({
   isMenuOpen,
   sections,
   activeItem,
   scrollTo,
   handleToggle,
 }) {
+  const navIcon = [
+    {
+      section: "Home",
+      icon: <GoHome />,
+      selIcon: <GoHomeFill />,
+    },
+    {
+      section: "About",
+      icon: <BsPerson />,
+      selIcon: <BsPersonFill />,
+    },
+    {
+      section: "Projects",
+      icon: <PiCompassTool />,
+      selIcon: <PiCompassToolBold />,
+    },
+    {
+      section: "Contact",
+      icon: <RiContactsBook3Line />,
+      selIcon: <RiContactsBook3Fill />,
+    },
+  ];
   return (
     <>
       <div
@@ -18,14 +44,21 @@ function MobNavbar({
           {sections.map((section) => (
             <button
               key={section}
-              className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left ${
-                activeItem === section
-                  ? "font-bold animatedText"
-                  : "text-black dark:text-white"
-              }`}
+              className={`flex items-center gap-2 px-3 py-2 rounded-md font-medium w-full text-left`}
               onClick={() => scrollTo(section)}
             >
-              {section}
+              <div className="secIcon text-2xl">
+                {activeItem === section
+                  ? navIcon.find((item) => item.section === section).selIcon
+                  : navIcon.find((item) => item.section === section).icon}
+              </div>
+              <div
+                className={`${
+                  activeItem === section ? "font-bold" : "text-neutral-500"
+                }`}
+              >
+                {section}
+              </div>
             </button>
           ))}
         </div>
@@ -38,7 +71,13 @@ function MobNavbar({
       </div>
 
       {/* Burger Menu */}
-      <div className="md:hidden absolute right-10 h-14 w-14 bg-white dark:bg-black2  flex items-center justify-center rounded-full dark:bg-color1-bg">
+      <div
+        className={`md:hidden absolute right-10 h-10 w-10 bg-white dark:bg-black2  flex items-center justify-center rounded-full ${
+          !isMenuOpen
+            ? "backdrop-blur-lg backdrop-brightness-125 shadow-lg"
+            : ""
+        }`}
+      >
         <input
           type="checkbox"
           id="menu-toggle"
@@ -49,12 +88,12 @@ function MobNavbar({
         />
         <label
           htmlFor="menu-toggle"
-          className="flex flex-col justify-between w-[35px] h-[25px] cursor-pointer z-10"
+          className="flex flex-col justify-between pl-[2px] w-[35px] h-[25px] cursor-pointer z-10"
         >
-          <div className="relative w-6 h-6">
+          <div className="relative w-6 h-6 scale-75">
             <span
               className={`absolute h-0.5 w-8 bg-black transition-all duration-300 ${
-                isMenuOpen ? "-rotate-45 top-3" : "rotate-0 top-1"
+                isMenuOpen ? "rotate-45 top-3" : "rotate-0 top-1"
               }`}
             ></span>
             <span
@@ -64,7 +103,7 @@ function MobNavbar({
             ></span>
             <span
               className={`absolute h-0.5 w-8 bg-black transition-all duration-300 ${
-                isMenuOpen ? "rotate-45 top-3" : "rotate-0 top-5"
+                isMenuOpen ? "-rotate-45 top-3" : "rotate-0 top-5"
               }`}
             ></span>
           </div>
@@ -73,5 +112,3 @@ function MobNavbar({
     </>
   );
 }
-
-export default MobNavbar;

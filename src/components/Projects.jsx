@@ -1,6 +1,8 @@
 import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
 
+import { GoProjectRoadmap } from "react-icons/go";
+
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 import { projImgs } from "@/assets/projImgs";
@@ -9,7 +11,13 @@ export default function CarouselPlugin() {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
 
   return (
-    <div id="Projects" className="w-screen h-screen py-5 md:pt-40">
+    <div id="Projects" className="w-screen md:h-screen mb-16 md:pt-20">
+      <h1 className="text-3xl md:text-4xl font-bold md:pt-10 pl-12 md:pl-36 flex pb-2">
+        <span>
+          <GoProjectRoadmap />
+        </span>
+        &nbsp;&nbsp;Projects
+      </h1>
       <Carousel
         plugins={[plugin.current]}
         className="w-full pt-5 border-y-[2px]"
@@ -38,7 +46,7 @@ export default function CarouselPlugin() {
                 </Card>
               </div>
               <div className="p-4">
-                <CardTitle>{img.title}</CardTitle>
+                <CardTitle className="text-lg">{img.title}</CardTitle>
                 <CardDescription>{img.desc}</CardDescription>
               </div>
             </CarouselItem>

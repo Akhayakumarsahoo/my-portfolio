@@ -16,4 +16,5 @@ export const images = [
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
 ];

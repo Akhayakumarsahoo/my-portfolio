@@ -1,19 +1,37 @@
 import { FaSchool } from "react-icons/fa6";
 import { SiKnowledgebase } from "react-icons/si";
 import { images } from "../assets/devIcon";
+import { motion } from "framer-motion";
+
 export default function About() {
+  const variants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 },
+  };
   return (
     <div
       id="About"
       className="min-h-screen flex flex-col justify-center md:mx-16 lg:mx-36"
     >
       {/* heading */}
-      <div className="Heading pt-20 text-center">
+      <motion.div
+        variants={variants}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        className="Heading pt-12 md:pt-20 text-center"
+      >
         <p className="text-[#555] dark:text-gray-300">Get To Know More</p>
-        <h1 className="text-5xl heroColor font-bold">About Me</h1>
-      </div>
+        <h1 className=" text-4xl md:text-5xl heroColor font-bold">About Me</h1>
+      </motion.div>
       {/* About */}
-      <div className="min-w-screen flex flex-col md:flex-row md:items-center md:justify-center mt-10">
+      <motion.div
+        variants={variants}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        className="min-w-screen flex flex-col md:flex-row md:items-center md:justify-center mt-10"
+      >
         {/* Image */}
         <div className="Image md:w-2/5 flex justify-center mb-5">
           <img
@@ -25,8 +43,8 @@ export default function About() {
         {/* Info */}
         <div className="Info md:w-3/5 px-10 md:px-20 lg:px-0 h-full flex flex-col md:justify-center">
           <div className="Name pb-2">
-            <h1 className="heroColor font-semibold text-3xl">
-              Akshay Kumar Sahoo
+            <h1 className="font-semibold text-2xl md:text-3xl">
+              Akhaya Kumar Sahoo
             </h1>
           </div>
           <p className="text-[#222] dark:text-gray-200">
@@ -43,12 +61,10 @@ export default function About() {
               technology and a desire to solve real-world problems through code.
             </span>
           </p>
-          <div className="py-3">
-            <span className="flex items-center mt-5 mb-2 space-x-5 text-3xl text-black2 dark:text-gray-300">
+          <div className="pt-3">
+            <span className="flex items-center mt-5 mb-2 space-x-5 text-3xl">
               <FaSchool />
-              <h1 className="text-xl font-bold dark:text-gray-300">
-                Education
-              </h1>
+              <h1 className="text-xl font-bold">Education</h1>
             </span>
 
             <p className="text-black dark:text-gray-300">
@@ -57,13 +73,19 @@ export default function About() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/*Skills and tech */}
-      <div className="h-[400px] mt-20 md:h-48 md:mb-5 flex flex-col items-center">
-        <span className=" flex gap-5 pb-5 text-4xl dark:text-gray-300 ">
+      <motion.div
+        variants={variants}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        className="h-[200px] mt-20 md:h-48 md:mb-5 flex flex-col"
+      >
+        <span className=" flex items-center gap-4 pb-5 text-2xl pl-12 md:pl-0">
           <SiKnowledgebase />
-          <span className="text-lg md:text-3xl font-bold heroColor pt-1">
+          <span className="text-lg md:text-2xl font-bold">
             Skills & Technologies
           </span>
         </span>
@@ -77,7 +99,7 @@ export default function About() {
           <div className="absolute flex gap-10 animate-loop-scroll hover:[animation-play-state:paused]">
             {[...images, ...images].map((image, idx) => (
               <img
-                className="w-16 h-16"
+                className="w-16 h-16 hover:scale-125 transition-all duration-100 ease-in-out"
                 loading="lazy"
                 src={image}
                 alt={image}
@@ -86,7 +108,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
