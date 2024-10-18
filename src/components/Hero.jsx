@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Social } from "./Navbar";
 import { SlArrowDown } from "react-icons/sl";
-
+import { Analytics } from "@vercel/analytics/react";
 function Hero() {
   const scrollTo = (id) => {
     const element = document.getElementById(id);
@@ -55,6 +55,7 @@ function Hero() {
       >
         <SlArrowDown />
       </motion.div>
+      <Analytics />
     </motion.section>
   );
 }
