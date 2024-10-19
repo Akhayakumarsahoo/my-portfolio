@@ -22,5 +22,5 @@ export const projImgs = [
     src: "/simonSaysGame.png",
     desc: "A simple game web app",
     link: "https://simonsaysgameakhi.vercel.app",
-
+  },
 ];
