@@ -15,6 +15,6 @@ export const projImgs = [
     title: "A simple Calculater",
     src: "/calculator.png",
     desc: "A simple calculater",
-    link: " https://akhi-calculater.netlify.app",
+    link: "https://akhi-calculater.netlify.app",
   },
 ];
