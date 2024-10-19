@@ -17,4 +17,10 @@ export const projImgs = [
     desc: "A simple calculater",
     link: "https://akhicalculater.netlify.app",
   },
+  {
+     title: "Simon says Game",
+    src: "/simonSaysGame.png",
+    desc: "A simple game web app",
+    link: "https://simonsaysgameakhi.vercel.app",
+
 ];
