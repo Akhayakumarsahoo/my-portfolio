@@ -17,31 +17,39 @@ export default function About() {
       <motion.div
         variants={variants}
         initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.5 }}
+        whileInView="visible"
+        transition={{ duration: 0.5, type: "ease" }}
+        viewport={{ once: true }}
         className="Heading pt-12 md:pt-20 text-center"
       >
         <p className="text-[#555] dark:text-gray-300">Get To Know More</p>
         <h1 className=" text-4xl md:text-5xl heroColor font-bold">About Me</h1>
       </motion.div>
       {/* About */}
-      <motion.div
-        variants={variants}
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.5 }}
-        className="min-w-screen flex flex-col md:flex-row md:items-center md:justify-center mt-10"
-      >
+      <div className="min-w-screen flex flex-col md:flex-row md:items-center md:justify-center mt-10">
         {/* Image */}
-        <div className="Image md:w-2/5 flex justify-center mb-5">
+        <motion.div
+          variants={variants}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ delay: 0.2, duration: 0.8, type: "spring" }}
+          className="Image md:w-2/5 flex justify-center mb-5"
+        >
           <img
             src="akhayakumarsahoo.jpg"
             alt="akhayakumarsahoo"
             className="rounded-full w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 hover:backdrop-blur-lg hover:backdrop-brightness-125 hover:shadow-lg transition-all duration-500 ease-in-out"
+            loading="lazy"
           />
-        </div>
+        </motion.div>
         {/* Info */}
-        <div className="Info md:w-3/5 px-10 md:px-20 lg:px-0 h-full flex flex-col md:justify-center">
+        <motion.div
+          variants={variants}
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.6, duration: 0.5, type: "spring" }}
+          className="Info md:w-3/5 px-10 md:px-20 lg:px-0 h-full flex flex-col md:justify-center"
+        >
           <div className="Name pb-2">
             <h1 className="font-semibold text-2xl md:text-3xl">
               Akhaya Kumar Sahoo
@@ -72,17 +80,11 @@ export default function About() {
               Science
             </p>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
 
       {/*Skills and tech */}
-      <motion.div
-        variants={variants}
-        initial="hidden"
-        whileInView="visible"
-        transition={{ duration: 0.5 }}
-        className="h-[200px] mt-20 md:h-48 md:mb-5 flex flex-col"
-      >
+      <div className="h-[200px] mt-20 md:h-48 md:mb-5 flex flex-col">
         <span className=" flex items-center gap-4 pb-5 text-2xl pl-12 md:pl-0">
           <SiKnowledgebase />
           <span className="text-lg md:text-2xl font-bold">
@@ -108,7 +110,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

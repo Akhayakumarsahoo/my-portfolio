@@ -8,8 +8,6 @@ import { Tooltip } from "@mui/material";
 import MobNavbar from "./MobNavbar";
 import { motion } from "framer-motion";
 
-import { track } from "@vercel/analytics";
-
 export default function Navbar() {
   // Menu toggle handle
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,13 +49,12 @@ export default function Navbar() {
       initial={{ opacity: 0, top: -100 }}
       animate={{ opacity: 1, top: 10 }}
       transition={{
-        delay: 0.5,
+        delay: 1,
         type: "spring",
         bounce: 0.3,
-        duration: 0.8,
-        ease: "easeOut",
+        duration: 0.5,
+        ease: "easeIn",
       }}
-      onClick={() => track("Click Navbar")}
       className="h-16 fixed top-5 z-50 w-full flex items-center justify-between px-10 md:px-20"
     >
       {/* Logo */}
@@ -70,7 +67,8 @@ export default function Navbar() {
             <img
               className="h-10 w-10 rounded-full "
               src="Logo.gif"
-              alt="Akshaya Kumar Sahoo"
+              alt="Akhaya Kumar Sahoo"
+              loading="lazy"
             />
           </a>
         </Tooltip>
@@ -137,7 +135,6 @@ export function LightToggleBtn({ id }) {
 
   // Light button handle
   const onChangeBtn = () => {
-    track("Toggle Theme");
     setThemeMode((prevMode) => (prevMode === "dark" ? "light" : "dark"));
   };
 
@@ -180,10 +177,7 @@ export function Social() {
       {/* GitHub */}
       <div className="cursor-pointer h-8 w-8 text-white text-xl bg-black hover:bg-gray-900 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 ease-in-out md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg">
         <Tooltip title="GitHub">
-          <a
-            href="https://github.com/Akhayakumarsahoo"
-            onClick={() => track("Click Github")}
-          >
+          <a href="https://github.com/Akhayakumarsahoo">
             <FaGithub />
           </a>
         </Tooltip>
@@ -191,7 +185,7 @@ export function Social() {
       {/* X */}
       <div className="cursor-pointer h-8 w-8 text-white text-lg bg-black hover:bg-gray-900 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 ease-in-out md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg">
         <Tooltip title="X">
-          <a href="https://x.com/akxyaKumar" onClick={() => track("Click X")}>
+          <a href="https://x.com/akxyaKumar">
             <FaXTwitter />
           </a>
         </Tooltip>
@@ -199,10 +193,7 @@ export function Social() {
       {/* LinkedIn */}
       <div className="cursor-pointer h-8 w-8 text-white text-lg bg-black hover:bg-gray-900 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 ease-in-out md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg">
         <Tooltip title="LinkedIn">
-          <a
-            href="https://www.linkedin.com/in/akxyakumar"
-            onClick={() => track("Click LinkedIn")}
-          >
+          <a href="https://www.linkedin.com/in/akxyakumar">
             <FaLinkedinIn />
           </a>
         </Tooltip>

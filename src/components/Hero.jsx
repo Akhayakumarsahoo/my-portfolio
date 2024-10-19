@@ -7,21 +7,42 @@ function Hero() {
     const element = document.getElementById(id);
     element.scrollIntoView({ behavior: "smooth" });
   };
+
+  const variants = {
+    initial: { opacity: 0, y: -50 },
+    animate: { opacity: 1, y: 0 },
+  };
+
   return (
-    <motion.section
-      initial={{ opacity: 0, scale: 0.5, y: 100 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+    <section
       id="Home"
       className="min-h-screen flex flex-col items-center justify-center px-5 pt-20 md:pt-28 z-0"
     >
-      <h1 className="pb-1 text-4xl md:text-6xl font-bold heroColor text-center">
+      <motion.h1
+        variants={variants}
+        initial={"initial"}
+        whileInView={"animate"}
+        transition={{ delay: 0.2, duration: 0.5, type: "spring" }}
+        className="pb-1 text-4xl md:text-6xl font-bold heroColor text-center"
+      >
         Hi,I'm Akhaya
-      </h1>
-      <p className="mt-4 md:mt-8 md:text-xl  font-semibold text-gray-500 text-center">
+      </motion.h1>
+      <motion.p
+        variants={variants}
+        initial={"initial"}
+        whileInView={"animate"}
+        transition={{ delay: 0.4, duration: 0.5, type: "spring" }}
+        className="mt-4 md:mt-8 md:text-xl  font-semibold text-gray-500 text-center"
+      >
         A Web Developer & A Tech Enthusiast
-      </p>
-      <div className="flex space-x-4 mt-5">
+      </motion.p>
+      <motion.div
+        variants={variants}
+        initial={"initial"}
+        whileInView={"animate"}
+        transition={{ delay: 0.6, duration: 0.5, type: "spring" }}
+        className="flex space-x-4 mt-5"
+      >
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
@@ -37,25 +58,31 @@ function Hero() {
         >
           Contact Info
         </motion.a>
-      </div>
-      <div className="mt-10">
-        <Social />
-      </div>
+      </motion.div>
       <motion.div
+        variants={variants}
+        initial={"initial"}
+        whileInView={"animate"}
+        transition={{ delay: 0.8, duration: 0.5, type: "spring" }}
+        className="mt-10"
+      >
+        <Social />
+      </motion.div>
+      <motion.div
+        variants={variants}
+        initial={"initial"}
+        whileInView={"animate"}
         onClick={() => scrollTo("About")}
         animate={{ scale: [1, 1.3, 1] }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.8 }}
         transition={{
-          ease: "linear",
-          duration: 1,
-          repeat: Infinity,
+          y: { delay: 1, duration: 0.5, type: "spring" },
+          scale: { ease: "linear", duration: 1, repeat: Infinity },
         }}
         className="ArrowDown absolute bottom-16 md:bottom-10 text-2xl cursor-pointer"
       >
         <SlArrowDown />
       </motion.div>
-    </motion.section>
+    </section>
   );
 }
 

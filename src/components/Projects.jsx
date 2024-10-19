@@ -8,7 +8,6 @@ import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 import { projImgs } from "@/assets/projImgs";
 import { Fade, Tooltip } from "@mui/material";
-import { track } from "@vercel/analytics";
 
 export default function CarouselPlugin() {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
@@ -46,15 +45,13 @@ export default function CarouselPlugin() {
                   placement="top-start"
                 >
                   <Card className="rounded-3xl cursor-pointer">
-                    <a
-                      href={img.link}
-                      onClick={() => track(`Click Project${img.title}`)}
-                    >
+                    <a href={img.link}>
                       <CardContent className="flex items-center justify-center w-full aspect-video bg-white dark:bg-black hover:bg-gray-200 dark:hover:bg-neutral-900 rounded-3xl">
                         <img
                           src={img.src}
                           alt={img.title}
                           className="h-[80%] rounded-xl mt-5"
+                          loading="lazy"
                         />
                       </CardContent>
                     </a>
