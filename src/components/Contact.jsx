@@ -5,7 +5,7 @@ function Contact() {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div id="Contact" className="h-96 pt-10 md:pt-20 px-10 md:px-20">
+    <div id="Contact" className="h-56 md:h-96 md:pt-20 px-10 md:px-20">
       {/* Heading Animation */}
       <motion.h1
         initial={{ opacity: 0, x: -100 }}
@@ -23,7 +23,7 @@ function Contact() {
         transition={{ duration: 0.5, type: "spring", delay: 0.5 }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="text-2xl block mt-10 hover:bg-neutral-300 dark:hover:bg-black2"
+        className="text-xl md:text-2xl block mt-10 hover:bg-neutral-300 dark:hover:bg-black2"
       >
         {hovered ? (
           // Email text when hovered

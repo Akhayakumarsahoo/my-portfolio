@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  purge: {
+    content: ["./src/**/*.html", "./src/**/*.js"],
+  },
   darkMode: ["class"],
   theme: {
     extend: {
@@ -56,11 +59,11 @@ export default {
       },
       keyframes: {
         "loop-scroll": {
-          from: {
+          "0%": {
             transform: "translateX(0)",
           },
-          to: {
-            transform: "translateX(-100%)",
+          "100%": {
+            transform: "translateX(-134%)",
           },
         },
       },
