@@ -72,12 +72,11 @@ function Hero() {
         variants={variants}
         initial={"initial"}
         whileInView={"animate"}
-        onClick={() => scrollTo("About")}
-        animate={{ scale: [1, 1.3, 1] }}
         transition={{
-          y: { delay: 1, duration: 0.5, type: "spring" },
+          opacity: { delay: 1, duration: 0.5, type: "spring" },
           scale: { ease: "linear", duration: 1, repeat: Infinity },
         }}
+        onClick={() => scrollTo("About")}
         className="ArrowDown absolute bottom-16 md:bottom-10 text-2xl cursor-pointer"
       >
         <SlArrowDown />
