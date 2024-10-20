@@ -21,7 +21,7 @@ export default function App() {
         <Footer />
       </Suspense>
 
-      <Analytics mode="production" />
+      <Analytics />
       <SpeedInsights />
     </>
   );
