@@ -15,10 +15,10 @@ export default function CarouselPlugin() {
   return (
     <div id="Projects" className="w-screen h-fit md:h-screen mb-16 pt-20">
       <h1 className="text-3xl md:text-4xl font-bold md:pt-10 pl-12 md:pl-36 flex pb-2">
-        <span>
+        <span className="mr-2">
           <GoProjectRoadmap />
         </span>
-        &nbsp;&nbsp;Projects
+        Projects
       </h1>
       <Carousel
         plugins={[plugin.current]}
