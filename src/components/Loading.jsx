@@ -1,6 +1,3 @@
-// src/components/Loading.js
-import React from "react";
-
 const Loading = () => {
   return (
     <div className="loading-spinner flex items-center justify-center h-screen bg-black1">

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import { Suspense, lazy } from "react";
 import Loading from "./components/Loading";
 const About = lazy(() => import("./components/About"));
 const Contact = lazy(() => import("./components/Contact"));
@@ -21,7 +21,7 @@ export default function App() {
         <Footer />
       </Suspense>
 
-      <Analytics />
+      <Analytics mode="production" />
       <SpeedInsights />
     </>
   );
