@@ -45,82 +45,84 @@ export default function Navbar() {
   };
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, top: -100 }}
-      animate={{ opacity: 1, top: 10 }}
-      transition={{
-        delay: 1,
-        type: "spring",
-        bounce: 0.3,
-        duration: 0.5,
-        ease: "easeIn",
-      }}
-      className="h-16 fixed top-5 z-50 w-full flex items-center justify-between px-10 md:px-20"
-    >
-      {/* Logo */}
-      <div className="flex flex-row">
-        <Tooltip title="sup!">
-          <a
-            onClick={() => scrollTo("Home")}
-            className="h-10 w-10 rounded-full backdrop-blur-lg backdrop-brightness-150 shadow-lg "
-          >
-            <img
-              className="h-10 w-10 rounded-full "
-              src="Logo.gif"
-              alt="Akhaya Kumar Sahoo"
-              loading="lazy"
-            />
-          </a>
-        </Tooltip>
-        <a
-          href="#Home"
-          className="animatedText text-xl pl-3 font-extrabold cursor-pointer pt-1"
-        >
-          AKS
-        </a>
-      </div>
-
-      {/* Menu Items for large screen */}
-      <div
-        className={`menu bg-gray-100 dark:bg-black2 hidden rounded-full px-1 md:flex items-center justify-center flex-col md:flex-row md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg md:absolute md:left-1/2 md:transform md:-translate-x-1/2 dark:[#555] `}
+    <>
+      <motion.nav
+        initial={{ opacity: 0, top: -100 }}
+        animate={{ opacity: 1, top: 10 }}
+        transition={{
+          delay: 1,
+          type: "spring",
+          bounce: 0.3,
+          duration: 0.5,
+          ease: "easeIn",
+        }}
+        className="h-16 fixed top-5 z-50 w-full flex items-center justify-between px-10 md:px-20"
       >
-        <motion.ul
-          layout
-          transition={{ duration: 1, ease: "easeInOut" }}
-          className="h-12 w-80 list-none rounded-full md:flex md:items-center md:justify-center md:flex-row"
-        >
-          {sections.map((section) => (
-            <motion.li
-              layout
-              transition={{ type: "spring" }}
-              key={section}
-              onClick={() => scrollTo(section)}
-              className={`px-4 md:py-2 text-sm rounded-full cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-700 ${
-                activeItem === section
-                  ? "font-bold"
-                  : "text-neutral-500 dark:text-neutral-500"
-              } `}
+        {/* Logo */}
+        <div className="flex flex-row">
+          <Tooltip title="sup!">
+            <a
+              onClick={() => scrollTo("Home")}
+              className="h-10 w-10 rounded-full backdrop-blur-lg backdrop-brightness-150 shadow-lg "
             >
-              {section}
-            </motion.li>
-          ))}
-        </motion.ul>
-      </div>
+              <img
+                className="h-10 w-10 rounded-full "
+                src="Logo.gif"
+                alt="Akhaya Kumar Sahoo"
+                loading="lazy"
+              />
+            </a>
+          </Tooltip>
+          <a
+            href="#Home"
+            className="animatedText text-xl pl-3 font-extrabold cursor-pointer pt-1"
+          >
+            AKS
+          </a>
+        </div>
 
-      {/* Mobile menu, show/hide based on menu state */}
-      <MobNavbar
-        isMenuOpen={isMenuOpen}
-        sections={sections}
-        activeItem={activeItem}
-        scrollTo={scrollTo}
-        handleToggle={handleToggle}
-      />
+        {/* Menu Items for large screen */}
+        <div
+          className={`menu bg-gray-100 dark:bg-black2 hidden rounded-full px-1 md:flex items-center justify-center flex-col md:flex-row md:backdrop-blur-lg md:backdrop-brightness-125 md:shadow-lg md:absolute md:left-1/2 md:transform md:-translate-x-1/2 dark:[#555] `}
+        >
+          <motion.ul
+            layout
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="h-12 w-80 list-none rounded-full md:flex md:items-center md:justify-center md:flex-row"
+          >
+            {sections.map((section) => (
+              <motion.li
+                layout
+                transition={{ type: "spring" }}
+                key={section}
+                onClick={() => scrollTo(section)}
+                className={`px-4 md:py-2 text-sm rounded-full cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-700 ${
+                  activeItem === section
+                    ? "font-bold bg-neutral-300 dark:bg-black1"
+                    : "text-neutral-500 dark:text-neutral-500"
+                }`}
+              >
+                {section}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </div>
 
-      {/* Social links and Light Toggle button */}
-      <div className="hidden md:flex items-center md:space-x-2 lg:space-x-4">
-        <LightToggleBtn id={"large"} />
-      </div>
-    </motion.nav>
+        {/* Mobile menu, show/hide based on menu state */}
+        <MobNavbar
+          isMenuOpen={isMenuOpen}
+          sections={sections}
+          activeItem={activeItem}
+          scrollTo={scrollTo}
+          handleToggle={handleToggle}
+        />
+
+        {/* Social links and Light Toggle button */}
+        <div className="hidden md:flex items-center md:space-x-2 lg:space-x-4">
+          <LightToggleBtn id={"large"} />
+        </div>
+      </motion.nav>
+    </>
   );
 }
 

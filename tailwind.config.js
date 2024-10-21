@@ -53,6 +53,7 @@ export default {
       },
       animation: {
         "loop-scroll": "loop-scroll 15s linear infinite",
+        animloader: "animloader 1s linear infinite alternate",
       },
       keyframes: {
         "loop-scroll": {
@@ -61,6 +62,20 @@ export default {
           },
           "100%": {
             transform: "translateX(-134%)",
+          },
+        },
+        animloader: {
+          "0%": {
+            "box-shadow": "-38px -12px, -14px 0, 14px 0, 38px 0",
+          },
+          "33%": {
+            "box-shadow": "-38px 0px, -14px -12px, 14px 0, 38px 0",
+          },
+          "66%": {
+            "box-shadow": "-38px 0px, -14px 0, 14px -12px, 38px 0",
+          },
+          "100%": {
+            "box-shadow": "-38px 0, -14px 0, 14px 0, 38px -12px",
           },
         },
       },
