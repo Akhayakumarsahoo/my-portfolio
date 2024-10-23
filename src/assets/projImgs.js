@@ -7,15 +7,9 @@ export const projImgs = [
   },
   {
     title: "Zerodha",
-    src: "/projects/zerodhaFront.png",
+    src: "/projects/zerodhaDash.png",
     desc: "A full stack stock trading app",
-    link: "https://zerodha-akhi.vercel.app",
-  },
-  {
-    title: "A simple Calculater",
-    src: "/projects/calculator.png",
-    desc: "A simple calculater",
-    link: "https://akhicalculater.netlify.app",
+    link: " https://dashboard-zerodha.vercel.app",
   },
   {
     title: "Simon says Game",
