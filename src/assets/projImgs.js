@@ -7,9 +7,9 @@ export const projImgs = [
   },
   {
     title: "Zerodha",
-    src: "/projects/zerodhaDash.png",
+    src: "/projects/zerodhaFront.png",
     desc: "A full stack stock trading app",
-    link: " https://dashboard-zerodha.vercel.app",
+    link: " https://zerodha-akhi.vercel.app",
   },
   {
     title: "Simon says Game",
