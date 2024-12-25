@@ -32,7 +32,10 @@ export default function CarouselPlugin() {
       >
         <CarouselContent className="w-full">
           {projImgs.map((img, index) => (
-            <CarouselItem key={index} className="md:basis-2/4 rounded-3xl">
+            <CarouselItem
+              key={index}
+              className="basis-10/12 md:basis-2/4 rounded-3xl"
+            >
               <div className="roundeed-3xl">
                 <Tooltip
                   title="Visit"
@@ -47,7 +50,7 @@ export default function CarouselPlugin() {
                         <img
                           src={img.src}
                           alt={img.title}
-                          className="h-[80%] object-cover rounded-xl mt-5"
+                          className="object-cover rounded-xl mt-5"
                           loading="lazy"
                         />
                       </CardContent>
