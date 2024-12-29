@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { PiMoonStarsFill } from "react-icons/pi";
 import { BsSun } from "react-icons/bs";
-import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { Tooltip } from "@mui/material";
 import MobNavbar from "./MobNavbar";
 import { motion } from "framer-motion";
@@ -59,9 +58,9 @@ export default function Navbar() {
         className="h-16 fixed top-5 z-50 w-full flex items-center justify-between px-10 md:px-20"
       >
         {/* Logo */}
-        <div className="flex flex-row">
+        <div className="flex flex-row cursor-pointer">
           <Tooltip title="sup!">
-            <a
+            <div
               onClick={() => scrollTo("Home")}
               className="h-10 w-10 rounded-full backdrop-blur-lg backdrop-brightness-150 shadow-lg "
             >
@@ -71,7 +70,7 @@ export default function Navbar() {
                 alt="Akhaya Kumar Sahoo"
                 loading="lazy"
               />
-            </a>
+            </div>
           </Tooltip>
           <a
             href="#Home"
