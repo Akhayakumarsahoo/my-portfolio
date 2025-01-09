@@ -57,10 +57,11 @@ export default function About() {
           </div>
           <p className="text-[#222] dark:text-gray-200">
             <span>
-              I am a passionate web developer specializing in creating dynamic
-              and responsive web applications. With expertise in React, Node.js,
-              and Tailwind CSS, I strive to build user-friendly interfaces that
-              provide seamless experiences.
+              I am a full-stack web developer with strong skills in creating
+              responsive, user-centric applications using React.js and Tailwind
+              CSS. Experienced in Node.js backend development, MongoDB database
+              management, and deploying modern web solutions with Vercel and
+              Cloudinary.
             </span>
             <br />
             <br />

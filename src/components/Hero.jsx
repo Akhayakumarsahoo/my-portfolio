@@ -25,7 +25,7 @@ function Hero() {
         transition={{ delay: 0.2, duration: 0.5, type: "spring" }}
         className="pb-1 text-4xl md:text-6xl font-bold heroColor text-center"
       >
-        Hi,I'm Akhaya
+        Hi,I&apos;m Akhaya
       </motion.h1>
       <motion.p
         variants={variants}
@@ -43,13 +43,15 @@ function Hero() {
         transition={{ delay: 0.6, duration: 0.5, type: "spring" }}
         className="flex space-x-4 mt-5"
       >
-        <motion.button
+        <motion.a
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
-          className="h-12 w-36 dark:text-gray-300 text-black bg-gray-100 dark:bg-black rounded-full backdrop-blur-lg backdrop-brightness-125 shadow-lg"
+          className="h-12 w-36 cursor-pointer flex items-center justify-center text-black dark:text-white bg-white dark:bg-black rounded-full backdrop-blur-lg backdrop-brightness-125 shadow-lg"
+          href="https://docs.google.com/document/d/1YxmiOtYi_uMzCi6v6cxuV055NRJZ3ULjVmpL_L-TbEo/edit?usp=sharing"
+          target="_blank"
         >
-          Download CV
-        </motion.button>
+          My CV
+        </motion.a>
         <motion.a
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
