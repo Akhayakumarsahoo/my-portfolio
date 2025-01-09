@@ -11,7 +11,6 @@ export const images = [
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
